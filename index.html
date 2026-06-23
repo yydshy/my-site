@@ -1392,23 +1392,23 @@
     每一帧都是真实的旅修瞬间——阳光、草地、颂钵、拥抱、笑容。
   </p>
 
-  <div class="gallery-v-grid reveal">
-    <img src="images/gallery/01.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/01.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/02.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/02.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/03.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/03.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/04.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/04.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/05.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/05.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/06.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/06.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/07.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/07.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/08.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/08.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/09.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/09.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/10.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/10.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/11.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/11.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/12.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/12.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/13.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/13.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/14.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/14.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/15.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/15.jpg')" alt="旅修瞬间" loading="lazy">
-    <img src="images/gallery/16.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/16.jpg')" alt="旅修瞬间" loading="lazy">
+  <div class="gallery-v-grid">
+    <img src="images/gallery/01.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/01.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/02.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/02.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/03.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/03.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/04.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/04.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/05.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/05.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/06.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/06.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/07.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/07.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/08.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/08.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/09.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/09.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/10.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/10.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/11.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/11.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/12.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/12.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/13.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/13.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/14.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/14.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/15.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/15.jpg')" alt="旅修瞬间">
+    <img src="images/gallery/16.jpg" class="gallery-v-img" onclick="openLightbox('images/gallery/16.jpg')" alt="旅修瞬间">
   </div>
 </section>
 
@@ -1522,6 +1522,11 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
+
+  // Fallback: force reveal after 3s in case Observer doesn't fire on mobile
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+  }, 3000);
 
   // Mobile menu
   function openMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow = 'hidden'; }
