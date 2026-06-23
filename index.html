@@ -505,9 +505,9 @@
       margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--paper-mid);
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
     }
 
     .fp-item {
@@ -976,7 +976,7 @@
       .stories-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .founder-philosophy-mini { flex-direction: column; gap: 1.25rem; }
+      .founder-philosophy-mini { grid-template-columns: 1fr; gap: 1.25rem; }
       footer { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
